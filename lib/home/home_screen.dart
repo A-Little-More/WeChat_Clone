@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:wechat_clone_01/others/colors/colors.dart';
-import 'package:wechat_clone_01/others/tools/constant.dart';
+import '../others/colors/colors.dart' show AppColor;
+import '../others/tools/constant.dart' show AppFontFamily;
+import '../home/conversation_page.dart' show ConversationPageWidget;
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -22,40 +23,46 @@ class HomePageWidgetState extends State<HomePageWidget> {
     _naviIconList = [
       NavigationViewIcon(
         title: '微信',
-        icon: Icon(Icons.chat_bubble_outline),
-        activeIcon: Icon(Icons.chat_bubble),
+        icon: Icon(IconData(
+            0xe608,
+            fontFamily: AppFontFamily.IconFontFamily
+        )),
+        activeIcon: Icon(IconData(
+            0xe603,
+            fontFamily: AppFontFamily.IconFontFamily
+        )),
       ),
       NavigationViewIcon(
         title: '通讯录',
         icon: Icon(IconData(
-            0xe60a,
-            fontFamily: IconFontFamily
+            0xe601,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
         activeIcon: Icon(IconData(
-            0xe603,
-            fontFamily: IconFontFamily
+            0xe656,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
       ),
       NavigationViewIcon(
         title: '发现',
         icon: Icon(IconData(
-            0xe609,
-            fontFamily: IconFontFamily
+            0xe600,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
         activeIcon: Icon(IconData(
-            0xe6c3,
-            fontFamily: IconFontFamily
+            0xe671,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
       ),
       NavigationViewIcon(
         title: '我',
         icon: Icon(IconData(
-            0xe61a,
-            fontFamily: IconFontFamily
+            0xe6c0,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
         activeIcon: Icon(IconData(
-            0xe60b,
-            fontFamily: IconFontFamily
+            0xe626,
+            fontFamily: AppFontFamily.IconFontFamily
         )),
       ),
     ];
@@ -63,7 +70,7 @@ class HomePageWidgetState extends State<HomePageWidget> {
     _pageController = PageController(initialPage: _bottomBarIndex);
 
     _pages = [
-      Container(color: Colors.red),
+      ConversationPageWidget(),
       Container(color: Colors.blue),
       Container(color: Colors.orange),
       Container(color: Colors.cyan),
@@ -87,7 +94,7 @@ class HomePageWidgetState extends State<HomePageWidget> {
         });
       },
       type: BottomNavigationBarType.fixed,
-      fixedColor: tabItemActiveColor,
+      fixedColor: AppColor.TabItemActiveColor,
       selectedFontSize: 12.0,
     );
 
@@ -104,22 +111,22 @@ class HomePageWidgetState extends State<HomePageWidget> {
                   value: PopActionValues.GROUP_CHAT,
                 ),
                 PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe64c, '添加朋友'),
+                  child: _buildPopupMenuItem(0xe638, '添加朋友'),
                   value: PopActionValues.ADD_FRIENDS,
                 ),
                 PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe6a2, '扫一扫'),
+                  child: _buildPopupMenuItem(0xe61b, '扫一扫'),
                   value: PopActionValues.SCAN_SCAN,
                 ),
                 PopupMenuItem(
-                  child: _buildPopupMenuItem(0xe658, '收付款'),
+                  child: _buildPopupMenuItem(0xe62a, '收付款'),
                   value: PopActionValues.PAY_MONEY,
                 ),
               ];
             },
             icon: Icon(IconData(
                 0xe600,
-                fontFamily: IconFontFamily
+                fontFamily: AppFontFamily.IconFontFamily
             )),
           ),
           Padding(
@@ -150,7 +157,7 @@ class HomePageWidgetState extends State<HomePageWidget> {
         Padding(padding: const EdgeInsets.only(left: 3.0)),
         Icon(IconData(
           iconName,
-          fontFamily: IconFontFamily,
+          fontFamily: AppFontFamily.IconFontFamily,
         ), color: Colors.white),
         Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0)),
         Text(title, style: TextStyle(color: Colors.white))
