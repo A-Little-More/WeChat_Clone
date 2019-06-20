@@ -11,5 +11,9 @@ class AppColor {
   static const ConversationDotColor = Color(0xffffffff);
   static const ConversationDotBgColor = Color(0xfff85351);
   static const ConversationMuteIconColor = Color(0xffd8d8d8);
+  static const ConversationDeviceInfoTitleColor = Color(0xff606062);
+  static const ConversationDeviceInfoBgColor = Color(0xffededed);
+  static const ContactGroupTitleBgColor = Color(0xffebebeb);
+  static const ContactGroupTitleTextColor = Color(0xff888888);
 }
 

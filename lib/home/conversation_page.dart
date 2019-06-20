@@ -10,10 +10,13 @@ class ConversationPageWidget extends StatelessWidget {
     return Container(
       color: Colors.grey,
       child: ListView.builder(
-        itemCount: conversations.length,
+        itemCount: conversations.length + 1,
         itemBuilder: (BuildContext context, int index) {
-          return ConversationItemWidget(
-            conversationModel: conversations[index],
+          if (index == 0) {
+            return _ConversationDeviceInfoWidget();
+          }
+          return _ConversationItemWidget(
+            conversationModel: conversations[index -1],
           );
         },
       ),
@@ -21,9 +24,44 @@ class ConversationPageWidget extends StatelessWidget {
   }
 }
 
+/*登陆其他设备提示item*/
+class _ConversationDeviceInfoWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 25.0),
+      decoration: BoxDecoration(
+        color: AppColor.ConversationDeviceInfoBgColor,
+        border: Border(
+          bottom: BorderSide(
+            color: AppColor.ConversationSliverColor,
+            width: Constants.ConversationDeviceSliverWidth
+          )
+        )
+      ),
+      child: Row(
+        children: <Widget>[
+          Icon(
+            IconData(
+              0xe61c,
+              fontFamily: AppFontFamily.IconFontFamily
+            ),
+            size: 24.0,
+            color: AppColor.ConversationDeviceInfoTitleColor,
+          ),
+          SizedBox(width: 15.0),
+          Text("Mac 微信已登录, 手机通知已关闭",
+            style: AppTextStyle.DeviceInfoItemTextStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 /*单个聊天item*/
-class ConversationItemWidget extends StatelessWidget {
-  ConversationItemWidget({Key key, ConversationModel conversationModel}):
+class _ConversationItemWidget extends StatelessWidget {
+  _ConversationItemWidget({Key key, ConversationModel conversationModel}):
   _conversationModel = conversationModel,
   super(key: key);
   final ConversationModel _conversationModel;
@@ -75,7 +113,7 @@ class ConversationItemWidget extends StatelessWidget {
     /*右边的区域*/
     Widget _rightContainerWidget = Column(
       children: <Widget>[
-        Text("12:00",
+        Text(this._conversationModel.updateAt,
           style: AppTextStyle.SubtitleStyle,
         ),
         SizedBox(
@@ -99,7 +137,7 @@ class ConversationItemWidget extends StatelessWidget {
         border: Border(
           bottom: BorderSide(
             color: AppColor.ConversationSliverColor,
-            width: 1.0
+            width: 0.5
           )
         )
       ),

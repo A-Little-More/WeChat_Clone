@@ -13,6 +13,7 @@ class Constants {
   static const ConversationDotSize = 18.0;
   static const ConversationDotTextSize = 10.0;
   static const ConversationMuteIconSize = 18.0;
+  static const ConversationDeviceSliverWidth = 0.6;
 }
 
 class AppTextStyle {
@@ -27,5 +28,13 @@ class AppTextStyle {
   static const DotStyle = TextStyle(
     fontSize: Constants.ConversationDotTextSize,
     color: AppColor.ConversationDotColor,
+  );
+  static const DeviceInfoItemTextStyle = TextStyle(
+    fontSize: Constants.ConversationSubtitleSize,
+    color: AppColor.ConversationDeviceInfoTitleColor,
+  );
+  static const GroupTitleItemTextStyle = TextStyle(
+    fontSize: 14.0,
+    color: AppColor.ContactGroupTitleTextColor,
   );
 }

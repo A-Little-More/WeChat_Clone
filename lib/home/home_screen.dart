@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../others/colors/colors.dart' show AppColor;
 import '../others/tools/constant.dart' show AppFontFamily;
 import '../home/conversation_page.dart' show ConversationPageWidget;
+import '../home/contact_page.dart' show ContactPageWidget;
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -71,7 +72,7 @@ class HomePageWidgetState extends State<HomePageWidget> {
 
     _pages = [
       ConversationPageWidget(),
-      Container(color: Colors.blue),
+      ContactPageWidget(),
       Container(color: Colors.orange),
       Container(color: Colors.cyan),
     ];
