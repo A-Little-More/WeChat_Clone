@@ -3,6 +3,8 @@ import '../others/colors/colors.dart' show AppColor;
 import '../others/tools/constant.dart' show AppFontFamily;
 import '../home/conversation_page.dart' show ConversationPageWidget;
 import '../home/contact_page.dart' show ContactPageWidget;
+import '../home/discover_page.dart' show DiscoverPageWidget;
+import '../home/mine_page.dart' show MinePageWidget;
 
 class HomePageWidget extends StatefulWidget {
   @override
@@ -73,8 +75,8 @@ class HomePageWidgetState extends State<HomePageWidget> {
     _pages = [
       ConversationPageWidget(),
       ContactPageWidget(),
-      Container(color: Colors.orange),
-      Container(color: Colors.cyan),
+      DiscoverPageWidget(),
+      MinePageWidget()
     ];
   }
 

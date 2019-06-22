@@ -14,6 +14,8 @@ class Constants {
   static const ConversationDotTextSize = 10.0;
   static const ConversationMuteIconSize = 18.0;
   static const ConversationDeviceSliverWidth = 0.6;
+  static const ContactCellHeight = 65.0;
+  static const ContactHeaderHeight = 30.0;
 }
 
 class AppTextStyle {
